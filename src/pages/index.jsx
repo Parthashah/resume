@@ -51,6 +51,7 @@ const container = css`
     margin-bottom: 0.5rem;
   }
 
+
   .grey {
     color: #96999b;
   }
@@ -84,7 +85,7 @@ const htmlToReactParser = new Parser()
 
 export default props => {
   const { data } = props
-  const content = data.prismicHomepage.data
+  const content = data.prismicResumehomepage.data
   const name = content.name.text
   const description = content.description.html
 
@@ -94,7 +95,7 @@ export default props => {
 
     if (section.slice_type === 'section') {
       return (
-        <div className="section">
+        <div className="section" key={section.id}>
           <h2>{title}</h2>
           <div>{items}</div>
         </div>
@@ -103,6 +104,14 @@ export default props => {
     if (section.slice_type === 'skills') {
       return (
         <div className="skills">
+          <h2>{title}</h2>
+          <div>{items}</div>
+        </div>
+      )
+    }
+    if (section.slice_type === 'awards') {
+      return (
+        <div className="section">
           <h2>{title}</h2>
           <div>{items}</div>
         </div>
@@ -123,7 +132,7 @@ export default props => {
 
 export const pageQuery = graphql`
   query {
-    prismicHomepage {
+    prismicResumehomepage {
       data {
         name {
           text
@@ -132,7 +141,7 @@ export const pageQuery = graphql`
           html
         }
         body {
-          ... on PrismicHomepageBodySection {
+          ... on PrismicResumehomepageBodySection {
             slice_type
             primary {
               title {
@@ -145,7 +154,20 @@ export const pageQuery = graphql`
               }
             }
           }
-          ... on PrismicHomepageBodySkills {
+          ... on PrismicResumehomepageBodySkills {
+            slice_type
+            primary {
+              title {
+                text
+              }
+            }
+            items {
+              content {
+                html
+              }
+            }
+          }
+          ... on PrismicResumehomepageBodyAwards {
             slice_type
             primary {
               title {
