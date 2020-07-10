@@ -1,2 +1,1 @@
-# Gatsby Starter: Resume/CV Site with Prismic
-This project is part of a Testing Gatsby.
+https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-minimal-blog
