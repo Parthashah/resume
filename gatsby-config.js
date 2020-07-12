@@ -39,13 +39,21 @@ module.exports = {
         ],
         externalLinks: [
           {
-            name: `Twitter`,
+            name: `linkedin`,
+            url: `https://www.linkedin.com/in/parthashah/`,
+          },
+          {
+            name: `twitter`,
             url: `https://twitter.com/parth_sh`,
           },
           {
-            name: `Instagram`,
+            name: `instagram`,
             url: `https://www.instagram.com/parth_sh29`,
           },
+          {
+            name: `mail`,
+            url: `mailto:partha.shah29@gmail.com`,
+          }
         ],
       },
     },

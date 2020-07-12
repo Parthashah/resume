@@ -40,8 +40,7 @@ module.exports = (title) => ({
           }
         }
       `,
-      output: `rss.xml`,
-      title,
+      output: `rss.xml`
     },
   ],
 })
